@@ -3,20 +3,12 @@ function [plain_txt] = caesar_decryption(cipher_txt, key)
     cipher_txt = convertStringsToChars(cipher_txt);
     cipher_txt = cipher_txt(cipher_txt ~= ' ');
     
-    plain_txt = blanks(length(cipher_txt));
-    
-    chars = 'a':'z';
+    plain_txt = '';
     
     for i = 1 : length(cipher_txt)
-        if ismember(cipher_txt(i), chars)
-            plain_index = find(key == cipher_txt(i));
-            plain_txt(i) = chars(plain_index);
-        else
-            plain_txt(i) = cipher_txt(i);
-        end
+        plain_txt = [plain_txt, char(mod(double(cipher_txt(i)) - key - 97, 26) + 97)];
     end
     
     plain_txt = upper(plain_txt);
-    
     disp(plain_txt);
 end

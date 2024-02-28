@@ -24,12 +24,13 @@
 
 ### Caesar
 
-> caesar_encryption("Hello");
+> caesar_encryption("Hello", 7);
 
-    Key:
-        zleainqtrxbhojckpymsgwufdv
-    Cipher Text:
-        TIHHC
+    OLSSV
+
+> caesar_decryption("OLSSV", 7);
+
+    HELLO
 
 ### Columnar Transposition Example
 

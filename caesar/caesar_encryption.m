@@ -1,22 +1,15 @@
-function [cipher_txt] = caesar_encryption(plain_txt)
+function [cipher_txt] = caesar_encryption(plain_txt, key)
     plain_txt = lower(plain_txt);
     plain_txt = convertStringsToChars(plain_txt);
     plain_txt = plain_txt(plain_txt ~= ' ');
     
-    cipher_txt=' ';
-    
-    chars = 'a':'z';
-    key = chars(randperm(26));
+    cipher_txt = '';
     
     for i = 1 : length(plain_txt)
-        cipher_index = find(chars == plain_txt(i));
-        cipher_txt(i) = key(cipher_index);
+        cipher_txt = [cipher_txt, char(mod(double(plain_txt(i)) + key - 97, 26) + 97)];
     end
     
     cipher_txt = upper(cipher_txt);
     cipher_txt = cipher_txt(cipher_txt ~= ' ');
-    disp ("Key: ");
-    disp (key);
-    disp("Cipher Text: ",cipher_txt);
     disp(cipher_txt);
 end
