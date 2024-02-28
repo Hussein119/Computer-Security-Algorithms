@@ -14,23 +14,25 @@ function [plain_txt] = row_col_decryption(cipher_txt, key)
     
     cipherMat = char(zeros(row, col));
     
+    [~, order] = sort(key);
+    
     % fill the matrix with the cipher_txt
     index = 1;
     for i = 1 : col
-        for j = 1 : row
-            cipherMat(j, i) = cipher_txt(index);
+        current_column = order(i);
+        for j = 1 : row 
+            cipherMat(j,current_column) = cipher_txt(index);
             index = index + 1;
         end
     end
     
-     % Create a mapping between characters in the key and their corresponding column indices
-    [~, idx] = ismember(unique(key), key);
-    
-    % Rearrange the columns of cipherMat based on the mapping
-    cipherMat = cipherMat(:, idx);
-    
-    % Concatenate the columns to form the decrypted plaintext
-    plain_txt = reshape(cipherMat', 1, []);
+    % extracting the plain_text
+     for i = 1 : row 
+        for j = 1 : col
+            plain_txt(index) = cipherMat(i,j);
+            index = index + 1;
+        end
+     end
      
     plain_txt = plain_txt(plain_txt ~= ' ');
     disp(plain_txt);

@@ -30,9 +30,18 @@ function [cipher_txt] = row_col_encryption(plain_txt, key)
         end
     end
     
-    str = key;
-    sorted_chars = sort(str); % Get characters and sort them alphabetically
+    [~, order] = sort(key); % Get characters and sort them alphabetically
+    
+    % extracting the cipher_txt
+    for i = 1 : col
+        current_column = order(i);
+        for j = 1 : row
+            cipher_txt(index) = cipherMat ( j , current_column);
+            index = index + 1;
+        end
+    end
 
+    %{
     map = containers.Map; % Initialize an empty map
 
     % Assign values to each character based on their order of appearance
@@ -46,13 +55,15 @@ function [cipher_txt] = row_col_encryption(plain_txt, key)
     end
     
     % Access the values using the map
-     for k = 1 : length(str)
-        if isKey(map, str(k)) % Check if the character is a valid key
-            col_index = map(str(k)); % Get the column index based on the key
+     for k = 1 : length(key)
+        if isKey(map, key(k)) % Check if the character is a valid key
+            col_index = map(key(k)); % Get the column index based on the key
             % Read the corresponding column from cipherMat
             cipher_txt = [cipher_txt, cipherMat(:, col_index)']; % Append the column to cipher_txt
         end
      end
+    %}
+     
     cipher_txt = cipher_txt(cipher_txt ~= ' ');
     disp (cipher_txt);
 end
