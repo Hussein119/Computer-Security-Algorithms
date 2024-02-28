@@ -14,7 +14,13 @@
 
 ### Rail Fence
 
->
+> rail_fence_encryption("defend the east wall", 3);
+
+    DNETLEEDHESWLFTAA
+
+> rail_fence_decryption("DNETLEEDHESWLFTAA", 3);
+
+    DEFENDTHEEASTWALL
 
 ### Caesar
 

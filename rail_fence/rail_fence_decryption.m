@@ -1,12 +1,10 @@
 function [plain_txt] = rail_fence_decryption(cipher_txt, key)
-
     cipher_txt = upper(cipher_txt);
+    cipher_txt = convertStringsToChars(cipher_txt);
     cipher_txt = cipher_txt(cipher_txt ~= ' ');
-    
-    num_rows = key;
     len_cipher = length(cipher_txt);
     
-    rail_fence = zeros(num_rows, len_cipher);
+    rail_fence = char(zeros(key, len_cipher));
     
     % mark the places with '*'
     downward = true;
@@ -15,7 +13,7 @@ function [plain_txt] = rail_fence_decryption(cipher_txt, key)
         rail_fence(row, i) = '*';
         if row == 1
             downward = true;
-        elseif row == num_rows
+        elseif row == key
             downward = false;
         end 
        
@@ -28,7 +26,7 @@ function [plain_txt] = rail_fence_decryption(cipher_txt, key)
     
     % now we can construct the fill the rail matrix
     index = 1;
-    for i = 1 : num_rows 
+    for i = 1 : key 
         for j = 1 : len_cipher
             if rail_fence (i,j) == '*' && index <= len_cipher
                 rail_fence (i,j) = cipher_txt(index);
@@ -51,7 +49,7 @@ function [plain_txt] = rail_fence_decryption(cipher_txt, key)
         
         if row == 1
             downward = true;
-        elseif row == num_rows
+        elseif row == key
             downward = false;
         end 
 

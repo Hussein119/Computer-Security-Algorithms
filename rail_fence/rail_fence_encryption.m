@@ -1,11 +1,10 @@
 function [cipher_txt] = rail_fence_encryption(plain_txt, key)
     plain_txt = upper(plain_txt);
+    plain_txt = convertStringsToChars(plain_txt);
     plain_txt = plain_txt(plain_txt ~= ' ');
-    
-    num_rows = key;
     len_plain = length(plain_txt);
     
-    rail_fence = zeros(num_rows, len_plain);
+    rail_fence = char(zeros(key, len_plain));
 
     downward = true;
     row = 1;
@@ -16,7 +15,7 @@ function [cipher_txt] = rail_fence_encryption(plain_txt, key)
         % Condition for changing the direction of the rail
         if row == 1
             downward = true; % Change direction to downward if at the top rail
-        elseif row == num_rows
+        elseif row == key
             downward = false; % Change direction to upward if at the bottom rail
         end
 
@@ -29,7 +28,7 @@ function [cipher_txt] = rail_fence_encryption(plain_txt, key)
     end
     
     cipher_txt = '';
-    for row = 1 : num_rows
+    for row = 1 : key
         cipher_txt = [cipher_txt, rail_fence(row, rail_fence(row,:) ~= 0)];
     end
     
