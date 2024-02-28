@@ -12,4 +12,3 @@
 - [x] Implement rail fence encryption using a string key (`rail_fence_String_key`).
   - Currently working on decryption.
 - [x] Implement encryption and decryption using Columnar Transposition.
-  - Currently resolving the issue of duplicate characters in the encryption key.
