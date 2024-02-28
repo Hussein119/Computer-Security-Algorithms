@@ -1,4 +1,4 @@
-function [cipher_txt] = rail_fence_encryption_num_key(plain_txt, key)
+function [cipher_txt] = rail_fence_encryption(plain_txt, key)
     plain_txt = upper(plain_txt);
     plain_txt = plain_txt(plain_txt ~= ' ');
     

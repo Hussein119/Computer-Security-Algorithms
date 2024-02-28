@@ -30,6 +30,7 @@ function [cipher_txt] = row_col_encryption(plain_txt, key)
         end
     end
     
+    % key = tomato; order =  4     3     2     6     1     5
     [~, order] = sort(key); % Get characters and sort them alphabetically
     
     % extracting the cipher_txt
@@ -64,6 +65,7 @@ function [cipher_txt] = row_col_encryption(plain_txt, key)
      end
     %}
      
+    cipher_txt = convertStringsToChars(cipher_txt);
     cipher_txt = cipher_txt(cipher_txt ~= ' ');
     disp (cipher_txt);
 end
