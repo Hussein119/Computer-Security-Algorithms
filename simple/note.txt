@@ -1,0 +1,4 @@
+plain_txt = Hello
+alphabet =  ABCDEFGHIJKLMNOPQRSTUVWXYZ
+key =       XGCIZSYHJUBFKMOLADQVTWENPR
+cipher_txt= HZFFO

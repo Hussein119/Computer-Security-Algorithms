@@ -2,15 +2,28 @@
 
 ## Required Tasks
 
-1. Implement rail fence encryption and decryption using a numeric key (`rail_fence`).
-2. Implement caesar encryption and decryption using a string key (`caesar`).
-3. Implement encryption and decryption using Columnar Transposition.
+1. Implement simple encryption and decryption using a numeric key (`simple`).
+2. Implement rail fence encryption and decryption using a numeric key (`rail_fence`).
+3. Implement caesar encryption and decryption using a string key (`caesar`).
+4. Implement encryption and decryption using Columnar Transposition.
 
 ## Tasks Completed
 
+- [x] Implement simple encryption and decryption using a numeric key (`simple`).
 - [x] Implement rail fence encryption and decryption using a numeric key (`rail_fence`).
 - [x] Implement caesar encryption and decryption using a string key (`caesar`).
 - [x] Implement encryption and decryption using Columnar Transposition.
+
+### Simple
+
+> simple_encryption("Hello");
+
+    WMLLB
+    JNXAMKDWRFTLPIBGCHEVSYUOQZ
+
+> simple_decryption("WMLLB","JNXAMKDWRFTLPIBGCHEVSYUOQZ");
+
+    HELLO
 
 ### Rail Fence
 
@@ -32,7 +45,7 @@
 
     HELLO
 
-### Columnar Transposition Example
+### Columnar Transposition
 
 > row_col_encryption("The tomato is a plant in the nightshade family", "tomato");
 
