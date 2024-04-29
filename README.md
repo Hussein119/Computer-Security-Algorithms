@@ -7,6 +7,8 @@
 3. Implement caesar encryption and decryption using a string key (`caesar`).
 4. Implement encryption and decryption using Columnar Transposition.
 5. Implement encryption and decryption using RC4.
+6. Implement encryption and decryption using Double Transposition.
+7. Implement encryption and decryption using One time pad 2.
 
 ## Tasks Completed
 
@@ -15,6 +17,8 @@
 - [x] Implement caesar encryption and decryption using a string key (`caesar`).
 - [x] Implement encryption and decryption using Columnar Transposition.
 - [x] Implement encryption and decryption using RC4.
+- [x] Implement encryption and decryption using Double Transposition.
+- [x] Implement encryption and decryption using One time pad 2.
 
 ### Simple
 
@@ -56,6 +60,26 @@
 > row_col_decryption("TINESAXEOAHTFXHTLTHEYMAIIAIXTAPNGDLOSTNHMX", "tomato");
 
     THETOMATOISAPLANTINTHENIGHTSHADEFAMILYXXXX
+
+### Double Transposition
+
+> double_transposition_encrypt('helloworld', [3 5 1 4 2], [2 1]);
+
+    ciphertext: WODLEHROLL
+
+> double_transposition_decrypt('WODLEHROLL', [3 5 1 4 2], [2 1]);
+
+    plaintext: helloworld
+
+### One time pad 2
+
+> otp_encryption('hello','jkosg');
+
+    ciphertext: rpaev
+
+> otp_decryption('rpaev','jkosg');
+
+    plaintext: hello
 
 ### RC4
 
