@@ -6,6 +6,7 @@
 2. Implement rail fence encryption and decryption using a numeric key (`rail_fence`).
 3. Implement caesar encryption and decryption using a string key (`caesar`).
 4. Implement encryption and decryption using Columnar Transposition.
+5. Implement encryption and decryption using RC4.
 
 ## Tasks Completed
 
@@ -13,6 +14,7 @@
 - [x] Implement rail fence encryption and decryption using a numeric key (`rail_fence`).
 - [x] Implement caesar encryption and decryption using a string key (`caesar`).
 - [x] Implement encryption and decryption using Columnar Transposition.
+- [x] Implement encryption and decryption using RC4.
 
 ### Simple
 
@@ -54,3 +56,13 @@
 > row_col_decryption("TINESAXEOAHTFXHTLTHEYMAIIAIXTAPNGDLOSTNHMX", "tomato");
 
     THETOMATOISAPLANTINTHENIGHTSHADEFAMILYXXXX
+
+### RC4
+
+> rc4_encrypt('Hello','key');
+
+    ciphertext: 1011011110011011011011100110100001101001
+
+> rc4_decrypt('1011011110011011011011100110100001101001','key');
+
+    plaintext: Hello
