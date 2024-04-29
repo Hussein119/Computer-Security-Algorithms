@@ -1,4 +1,4 @@
-# Computer Security Section Task
+# Computer Security Algorithms
 
 ## Required Tasks
 
