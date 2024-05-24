@@ -1,0 +1,58 @@
+function [cipher_txt]=row_colCipher(plain_txt , key)
+
+  plain_txt=upper(plain_txt);
+  plain_txt=plain_txt(plain_txt ~=' ');
+  key=upper(key);
+  key=key(key~=' ');
+  cipher_txt=' ';
+
+
+  row=ceil(length(plain_txt)/length(key));
+  col=length(key);
+  cipherMat=char(zeros(row,col));
+  
+  if(row*col > length(plain_txt))
+      for i=1 : (row*col - length(plain_txt))
+          plain_txt=strcat(plain_txt,'X');
+      end
+  end
+
+
+c=1;
+for i=1:row
+ for j=1:col
+     
+     cipherMat(i,j)=plain_txt(c);
+     c=c+1;
+     
+ end
+end
+    % Sort the columns according to the alphabetical order of the key
+    %[B,I] = sort(A)
+   
+    %exmple
+    %     A = 3x1 datetime
+    %    2012-12-22
+    %    2063-04-05
+    %    1992-01-12
+    % [B,I] = sort(A)
+    % B = 3x1 datetime
+    %    1992-01-12
+    %    2012-12-22
+    %    2063-04-05
+    % 
+    % I = 3×1
+    % 
+    %      3
+    %      1
+    %      2    
+    % B lists the sorted dates and I contains the corresponding indices of A.
+
+    [sortedkey, index] = sort(key);
+    sortedcipherMat = cipherMat(:, index);
+    
+    % Read the ciphertext column by column
+    % reshape matrix in 1 row and calculte the suitable number of columnes
+    cipher_txt = reshape(sortedcipherMat, 1, []);
+
+end

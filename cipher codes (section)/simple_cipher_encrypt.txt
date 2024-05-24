@@ -1,0 +1,13 @@
+function [cipher_txt,key]=simple_sub_encrypt(plain_txt)
+chars='a':'z';
+plain_txt=lower(plain_txt);
+plain_txt=plain_txt(plain_txt ~= ' ');
+cipher_txt=' ';
+
+key=chars(randperm(26));
+for I=1 : length(plain_txt)
+    cipher_ind=find(chars==plain_txt(I));
+    cipher_txt(I)=key(cipher_ind);
+end
+cipher_txt=upper(cipher_txt);
+end

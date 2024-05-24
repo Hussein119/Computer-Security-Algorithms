@@ -1,0 +1,41 @@
+function [plain_txt]=row_colCipher_decryption(cipher_txt , key)
+
+  cipher_txt=upper(cipher_txt);
+  cipher_txt=cipher_txt(cipher_txt ~=' ');
+  key=upper(key);
+  key=key(key~=' ');
+  plain_txt=' ';
+
+
+  row=ceil(length(cipher_txt)/length(key))
+  col=length(key);
+  plainMat=char(zeros(row,col));
+  
+
+  if(row*col > length(cipher_txt))
+      for i=1 : (row*col - length(cipher_txt))
+          cipher_txt=strcat(cipher_txt,'X');
+      end
+  end
+
+
+% c=1;
+% for i=1:row
+%  for j=1:col
+% 
+%      plainMat(i,j)=cipher_txt(c);
+%      c=c+1;
+% 
+%  end
+% end
+ plainMat=reshape(cipher_txt,row,col);
+
+    [sortedkey, index] = sort(key);
+    % reverseIndex an array 
+    reverseIndex(index) = 1:col;  % vector contains numbers from 1 to num of columnes "representing the original positions of columns."
+    sortedplainMat = plainMat(:,reverseIndex)
+    
+    
+    plain_txt = reshape(sortedplainMat', 1, []);
+
+end

@@ -1,0 +1,17 @@
+function [cipher_txt]=ceaser_cipher(plain_txt,key)
+chars='a':'z';
+plain_txt=lower(plain_txt);
+plain_txt=plain_txt(plain_txt ~= ' ');
+cipher_txt=' ';
+
+for I=1 : length(plain_txt)
+    cipher_ind=find(chars==plain_txt(I));
+    cipher_ind=cipher_ind+key;
+    cipher_ind=mod(cipher_ind-1,26)+1;
+    cipher_txt(I)=chars(cipher_ind);
+end
+
+cipher_txt=upper(cipher_txt);
+
+
+end

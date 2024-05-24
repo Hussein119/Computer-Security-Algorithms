@@ -1,0 +1,14 @@
+function [plain_txt]=ceaser_cipher_decrypt(cipher_txt,key)
+ chars='a':'z';
+cipher_txt=lower(cipher_txt);
+cipher_txt=cipher_txt(cipher_txt ~= ' ');
+plain_txt=' ';
+
+for I=1:length(cipher_txt)
+plain_ind=find(chars==cipher_txt(I));
+plain_ind=plain_ind-key;
+plain_ind=mod(plain_ind-1,26)+1;
+cipher_txt(I)=chars(plain_ind);
+end
+plain_txt=lower(plain_txt);
+end
